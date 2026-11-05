@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink-900 antialiased;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white shadow-sm hover:bg-brand-600 active:scale-[.98];
+  }
+  .btn-spark {
+    @apply btn bg-spark-500 text-white shadow-sm hover:bg-spark-400 active:scale-[.98];
+  }
+  .btn-ghost {
+    @apply btn text-ink-800 hover:bg-ink-900/5;
+  }
+  .btn-outline {
+    @apply btn border border-ink-900/15 bg-white text-ink-900 hover:border-ink-900/30 hover:bg-ink-900/[.03];
+  }
+  .btn-dark {
+    @apply btn bg-white/10 text-white ring-1 ring-white/15 backdrop-blur hover:bg-white/20;
+  }
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 text-[15px] text-ink-900
+      placeholder:text-ink-900/40 transition focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-800;
+  }
+  .card {
+    @apply rounded-3xl border border-ink-900/10 bg-white shadow-[0_1px_2px_rgba(12,17,34,.04),0_12px_32px_-12px_rgba(12,17,34,.12)];
+  }
+  .prose-page h2 {
+    @apply mt-10 font-display text-xl font-bold text-ink-900;
+  }
+  .prose-page p,
+  .prose-page li {
+    @apply mt-3 leading-relaxed text-ink-900/75;
+  }
+  .prose-page ul {
+    @apply mt-2 list-disc pl-6;
+  }
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(12, 17, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 17, 34, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
