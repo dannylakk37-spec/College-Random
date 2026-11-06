@@ -5,9 +5,11 @@ import { publicEnv } from '@/lib/env';
 // Service-role client. BYPASSES Row Level Security.
 // `server-only` makes the build fail if this file is ever imported into
 // browser code, so the secret key can't leak.
-let cached: ReturnType<typeof createClient> | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let cached: any = null;
 
-export function createAdminClient() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function createAdminClient(): any {
   if (cached) return cached;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!key) {
